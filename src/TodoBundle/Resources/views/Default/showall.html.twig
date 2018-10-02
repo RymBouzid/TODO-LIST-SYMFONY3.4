@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Todo list</h1>
+    <a class="btn btn-danger" href="{{ path('todo_new') }}">Create a new todo </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Task</th>
+            <th>Deadline</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for todo in todolist %}
+            <tr>
+                <td>{{ todo.id}}</td>
+                <td>{{ todo.task }}</td>
+                <td>{{ todo.deadline |date('Y-m-d H:i:s')  }}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('todo_edit', {'id':todo.id}) }}">edit</a>
+                    <a class="btn btn-warning" href="{{ path('todo_delete' , {'id':todo.id}) }}">delete</a>
+                    <a class="btn btn-primary" href="{{ path('todo_details' , {'id':todo.id}) }}">details</a>
+                </td>
+            </tr>
+        {% endfor %}
+        {% for message in app.flashes('notice') %}
+            <div class=" flash-notice alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('notice1') %}
+            <div class=" flash-notice alert alert-success" role="alert">
+                {{ message}}
+            </div>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

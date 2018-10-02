@@ -1,0 +1,19 @@
+todo_homepage:
+    path:     /Users
+    defaults: { _controller: TodoBundle:Default:index }
+todo_all:
+        path:     /all
+        defaults:  { _controller: TodoBundle:Default:all}
+todo_new:
+    path:     /new
+    defaults:  { _controller: TodoBundle:Default:new }
+todo_edit:
+    path:     /{id}/edit
+    defaults:  { _controller: TodoBundle:Default:edit }
+todo_delete:
+    path:     /{id}/delete
+    defaults:  { _controller: TodoBundle:Default:delete }
+todo_details:
+    path:     /{id}/details
+    defaults:  { _controller: TodoBundle:Default:details }
+
